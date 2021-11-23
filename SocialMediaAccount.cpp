@@ -20,9 +20,9 @@ void SocialMediaAccount<T>::addFollowed(T user){
 template<class T>
 void SocialMediaAccount<T>::displayFollowers() {
     for(int i=0; i<followerCount; i++) {
-        if (isPrivate = true)
-            cout << "Private" << endl;
-        else
+        if (isPrivate = false)
             cout << ptr[i] << endl;
+        else
+            cout << "Private" << endl;
     }
 }

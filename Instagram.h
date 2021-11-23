@@ -9,11 +9,11 @@
 template<class T>
 class Instagram: public SocialMediaAccount<T>{
 public:
-    int getLikeCount(){return likeCount;}
-    void setRetweetCount(int num){likeCount=num;}
-    void Like(){likeCount++;}
+    int getLikeCount(){return likeCount;}//returns like count
+    void setLikeCount(int num){likeCount=num;}//sets the like count
+    void Like(){likeCount++;}//adds 1 to the like count
 private:
-    int likeCount;
+    int likeCount=0;
 
 };
 

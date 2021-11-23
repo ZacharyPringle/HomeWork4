@@ -9,9 +9,9 @@
 template<class T>
 class Twitter: public SocialMediaAccount<T>{
 public:
-    int getRetweetCount(){return retweetCount;}
-    void setRetweetCount(int num){retweetCount=num;}
-    void RT(){retweetCount++;}
+    int getRetweetCount(){return retweetCount;}//returns the retweet count
+    void setRetweetCount(int num){retweetCount=num;}//sets the retweet count
+    void RT(){retweetCount++;}//adds 1 to the retweet count
 private:
     int retweetCount=0;
 
