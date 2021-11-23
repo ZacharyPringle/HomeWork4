@@ -23,7 +23,7 @@ public:
     bool getIsPrivate(){return isPrivate;} //returns if the account is private or not
     void addFollower(T user);//adds a follower to the follower count and into an "array" creating new users or adding in existing profiles
     void addFollowed(T user);//adds a user the user followed to the followed count and into an "array" creating new users or adding in existing profiles
-    void displayFollowers(); //displays follower information if isPrivate is false and returns Private if the information of the follower for isPrivate is true
+    virtual void displayFollowers(); //displays follower information if isPrivate is false and returns Private if isPrivate is true
     T & operator [](int index){return ptr[index];}//allows the formation of an array when calling the created users
 protected:
     T handler;

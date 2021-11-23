@@ -32,13 +32,15 @@ ostream & operator<<(ostream &obj, Profile p){
 }
 
 int main() {
+    bool isPriv;
     Profile p1{1,"Joe"}, p2{2,"Smith"}, p3{3, "Jimmy"}, p4{4,"Jerry"};
     Twitter<string> TS;
-        TS.addFollower("Joe");
+        TS.addFollower("Joe");//first follower is account acts as main account
         TS.addFollower("Jill");
         TS.addFollower("Bill");
         TS.RT();
         TS.getRetweetCount();
+        TS.displayFollowers();
         TS.setIsPrivate(false);
             cout << TS.getIsPrivate() << endl;
         TS.setRetweetCount(10);
@@ -49,8 +51,7 @@ int main() {
         TS.setHandler("Zachary");
             cout << TS.getHandler() << endl;
         TS.displayFollowers();
-            cout << TS[0] << endl;
-        //TS[0].setIsPrivate(false);
+        TS.setIsPrivate(false);
 
         cout<<"\n___________________________________________________\n" << endl;
 
@@ -68,6 +69,8 @@ int main() {
             cout << TP.getFollowerCount() << endl;
             cout << TP.getFollowedCount() << endl;
             cout << TP[0] << endl;
+        TP.setIsPrivate(false);
+        TP.displayFollowers();
 
     cout<<"\n___________________________________________________\n" << endl;
 
@@ -90,6 +93,8 @@ int main() {
         IS.addFollowed("Tom");
         IS.addFollowed("Thomas");
             cout << IS.getFollowedCount() << endl;
+        IS.setIsPrivate(false);
+        IS.displayFollowers();
 
     cout<<"\n___________________________________________________\n" << endl;
 
@@ -108,6 +113,8 @@ int main() {
         IP.addFollowed(p3);
         IP.addFollowed(p4);
             cout << IP.getFollowerCount() << " " << IP.getFollowedCount() << endl;
+        IP.setIsPrivate(false);
+        IP.displayFollowers();
 
 
 
