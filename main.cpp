@@ -1,6 +1,24 @@
+/***************************************************************************
+* Author : Zachary Pringle                                                 *
+* Program : hw4                                                            *
+* Date Created : November 19, 2021                                         *
+* Date Last Modified : November 22, 2021                                   *
+* Usage : No command line arguments                                        *
+* Problem:                                                                 *
+* Create profiles for different social media accounts                      *
+*  - Use class social media account that is a template class               *
+*  - Use classes Twitter and Instagram as children of socil media account  *
+*  - create a struct profile class than can be passed in the template class*
+***************************************************************************/
+
 #include <iostream>
 #include "Twitter.h"
+#include "Twitter.cpp"
 #include "Instagram.h"
+#include "Instagram.cpp"
+#include "SocialMediaAccount.cpp"
+
+using namespace std;
 
 struct Profile{
     int userID;
@@ -8,20 +26,43 @@ struct Profile{
 };
 
 ostream & operator<<(ostream &obj, Profile p){
-    obj<<p.userID << " " << p.username << endl;
+    obj<<p.userID << " " << p.username;
     return obj;
 }
 
-using namespace std;
-
 int main() {
-    Profile p1{1,"Joe"}, p2{2,"Smith"};
+    Profile p1{1,"Joe"}, p2{2,"Smith"}, p3{3, "Jimmy"}, p4{4,"Jerry"};
     Twitter<string> TS;
+        TS.addFollower("Joe");
+        TS.addFollower("Jill");
+        TS.addFollower("Bill");
+        TS.RT();
+        TS.getRetweetCount();
+        TS.setIsPrivate(false);
+            cout << TS.getIsPrivate() << endl;
+        TS.setRetweetCount(10);
+            cout << TS.getRetweetCount() << endl;
+        TS.addFollowed("Jill");
+            cout << TS.getFollowerCount() << endl;
+            cout << TS.getFollowedCount() << endl;
+        TS.setHandler("Zachary");
+            cout << TS.getHandler() << endl;
+        TS.displayFollowers();
+
+        cout<<"\n___________________________________________________\n" << endl;
+
     Twitter<Profile> TP;
+        TP.addFollower(p1);
+        TP.addFollower(p2);
+        TP.addFollower(p3);
+        TP.addFollower(p4);
+        TP.displayFollowers();
+        TP.RT();
+        TP.RT();
+            cout << TP.getRetweetCount() << endl;
+
     Instagram<string> IS;
     Instagram<Profile> IP;
-    TP.addFollower(p1);
-
 
     return 0;
 }

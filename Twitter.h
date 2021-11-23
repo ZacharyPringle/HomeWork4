@@ -13,7 +13,7 @@ public:
     void setRetweetCount(int num){retweetCount=num;}
     void RT(){retweetCount++;}
 private:
-    int retweetCount;
+    int retweetCount=0;
 
 };
 

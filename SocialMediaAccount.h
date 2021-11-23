@@ -8,30 +8,33 @@
 
 using namespace std;
 
-const int maxFollowers = 5;
-const int maxFollowed = 5;
+const int maxFollowers=100;
+const int maxFollowed=100;
 
 template<class T>
 class SocialMediaAccount {
 public:
-    SocialMediaAccount():isPrivate(true), handler(""), followerCount(0), followedCount(0){ptr = new T [maxFollowers];}
+    SocialMediaAccount():isPrivate(true), followerCount(0), followedCount(0){ptr = new T [maxFollowers]; ptr2 = new T [maxFollowed];}
+    //SocialMediaAccount(T hand, bool isPriv):isPrivate(isPriv), handler(hand), followerCount(0), followedCount(0){ptr = new T [maxFollowers]; ptr2 = new T [maxFollowed];}
     void setHandler(T handle){handler=handle;}
     void setIsPrivate(bool isPriv){isPrivate=isPriv;}
     T getHandler(){return handler;}
-    T getFollowerCount(){return followerCount;}
-    T getFollowedCount(){return followedCount;}
+    int getFollowerCount(){return followerCount;}
+    int getFollowedCount(){return followedCount;}
     bool getIsPrivate(){return isPrivate;}
     void addFollower(T user);
     void addFollowed(T user);
     void displayFollowers();
-private:
-    string handler;
+    T & operator [](int index){return ptr[index];}
+protected:
+    T handler;
     T followers[maxFollowers];
     T followed[maxFollowed];
     int followerCount;
     int followedCount;
     bool isPrivate;
     T *ptr;
+    T *ptr2;
 };
 
 
